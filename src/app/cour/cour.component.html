@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+<div class="container">
+  <div class="mt-3">
+    <p style="padding-top: 60px;">
+      <mat-card>
+        <p>{{cour?.title}}</p>
+        <mat-table #table [dataSource]="dataSource">
+          <!--- Note that these columns can be defined in any order.
+            The actual rendered columns are set as a property on the row definition" -->
+          <!-- Position Column -->
+          <ng-container matColumnDef="date">
+            <mat-header-cell *matHeaderCellDef> date </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+          </ng-container>
+          <!-- Name Column -->
+          <ng-container matColumnDef="content">
+            <mat-header-cell *matHeaderCellDef> content </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.content}} </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+      </mat-card>
+    </p>
+  </div>
+</div>

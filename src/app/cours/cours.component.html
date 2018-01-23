@@ -1,0 +1,43 @@
+<app-menu></app-menu>
+<div>
+
+
+
+<mat-card>
+    <mat-form-field class="seach-width">
+    <input type="text" placeholder="Search" aria-label="Number" matInput [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option >
+
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+
+  </mat-card>
+  <mat-card>
+      <div class="example-container mat-elevation-z8">
+          <mat-table #table [dataSource]="dataSource">
+        
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+        
+            <!-- Position Column -->
+            <ng-container matColumnDef="title">
+              <mat-header-cell *matHeaderCellDef> title </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+            </ng-container>
+        
+            <!-- Name Column -->
+            <ng-container matColumnDef="author">
+              <mat-header-cell *matHeaderCellDef> author </mat-header-cell>
+              <mat-cell *matCellDef="let element"> {{element.author}} </mat-cell>
+            </ng-container>
+        
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"  routerLink="/cour/{{row._id}}"></mat-row>
+          </mat-table>
+        </div>
+  
+    </mat-card>
+
+</div>
